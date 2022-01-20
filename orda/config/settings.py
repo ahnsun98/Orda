@@ -20,7 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^&979f)j&do))ofqd62c+m1-84gd4vxy!-9n@0lr4##1rz^0r%'
+import json
+file = open('../../protectKey/key.json', 'r').read()
+file = json.loads(file)
+key = file['django_key']
+SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

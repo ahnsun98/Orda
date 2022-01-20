@@ -1,5 +1,2 @@
 # API 인증키 보호
-
-*.txt
-
-openAPIdata\mountain_info\protectKey
+protectKey/*
