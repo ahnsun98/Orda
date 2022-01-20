@@ -1,2 +1,20 @@
 # API 인증키 보호
 protectKey/*
+
+# cache 추가 x
+orda/config/__pycache__/*
+
+orda/info/__pycache__/*
+orda/info/migrations/__pycache__/*
+
+orda/infoplus/__pycache__/*
+orda/infoplus/migrations/__pycache__/*
+
+orda/main/__pycache__/*
+orda/main/migrations/__pycache__/*
+
+orda/region/__pycache__/*
+orda/region/migrations/__pycache__/*
+
+orda/review/__pycache__/*
+orda/review/migrations/__pycache__/*

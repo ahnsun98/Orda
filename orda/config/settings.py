@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 import json
-file = open('../../protectKey/key.json', 'r').read()
+file = open('../protectKey/key.json', 'r').read()
 file = json.loads(file)
 key = file['django_key']
 SECRET_KEY = key
