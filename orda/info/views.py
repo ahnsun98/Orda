@@ -4,5 +4,4 @@ from . models import *
 def main(request):
     m = '관악산'
     mountain = Mountain.objects.filter(name=m)
-    print(mountain)
-    return render(request, 'info/content.html', {'data':mountain})
+    return render(request, 'info/content.html', {'data':mountain[0]})

@@ -11,7 +11,15 @@
             <div class="col-lg-8">
                 <h1 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">{{data.name}}</h1>
                 <p class="text-dark-50" style="font-family: 'Jua', sans-serif; font-size: 1.25rem">
-                    위치 : {{data.loc}}
+                    <b>위치</b> : {{data.loc}} <br>
+                    <b>높이</b> : {{data.height}}m <br>
+                    {{data.overview}} <br>
+                    <br>
+                    🔍 <b>상세 설명</b> : <br>
+                    {{data.detail}} <br>
+                    <br>
+                    📌 <b>관광정보</b> : <br>
+                    {{data.tourism}} <br>
                 </p>
             </div>
         </div>
@@ -55,7 +63,7 @@
             </div>
         </div>
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <img class="img-fluid" src="{% static 'assets/img/demo-image-02.jpg' %}" alt="등산코스플래시" />
+            <img class="img-fluid" src="" alt="등산코스플래시" />
         </div>
     </div>
 </section>
