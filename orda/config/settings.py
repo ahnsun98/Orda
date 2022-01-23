@@ -88,7 +88,26 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+LOGGING={
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers':
+    {
+        'console':
+        {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers':
+    {'django.db.backends':
+        {
+            'handlers':
+            ['console'],
+            'level': 'DEBUG',
+        },
+     }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -127,6 +146,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

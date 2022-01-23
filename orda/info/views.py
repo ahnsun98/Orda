@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from . models import *
 
-# Create your views here.
+def main(request):
+    m = '관악산'
+    mountain = Mountain.objects.filter(name=m)
+    print(mountain)
+    return render(request, 'info/content.html', {'data':mountain})

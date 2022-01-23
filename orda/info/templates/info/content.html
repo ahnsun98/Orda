@@ -1,0 +1,72 @@
+{% extends 'info/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- About(산 정보)-->
+<section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">{{data.name}}</h1>
+                <p class="text-dark-50" style="font-family: 'Jua', sans-serif; font-size: 1.25rem">
+                    위치 : {{data.loc}}
+                </p>
+            </div>
+        </div>
+        <img class="img-fluid mb-5" src="{% static 'assets/img/mountain.png' %}" alt="..." />
+        <a class="row btn btn-primary" style="font-family: 'Jua', sans-serif; font-size: 1.25rem" href="">리뷰 쓰러 가기</a>
+    </div>
+</section>
+<!-- Projects(추가 정보)-->
+<section class="projects-section" id="projects">
+    <div class="container px-4 px-lg-5">
+        <!-- 인스타 이미지 -->
+        <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+            <div class="col-lg-10">
+                <h2 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">산 경관</h2>
+            </div>
+            <a class="col-lg-2 nav-link" style="font-family: 'Jua', sans-serif;" href="">사진 더보기</a>
+        </div>
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img1" /></div>
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img2" /></div>
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img3" /></div>
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img4" /></div>      
+        </div>
+        <!-- 맛집 -->
+        <div class="row gx-0 mt-5 mb-4 mb-lg-5 align-items-center">
+            <div class="mt-5 col-lg-8">
+                <h2 class="text-dark mt-5 mb-4" style="font-family: 'Jua', sans-serif;">맛집 정보</h2>
+                <p class="text-dark-50" style="font-family: 'Jua', sans-serif;">
+                    ???
+                </p>
+            </div>
+        </div>
+        <img class="img-fluid" src="{% static 'assets/img/demo-image-02.jpg' %}" alt="API지도" />
+        <!-- 등산경로 -->
+        <div class="row gx-0 mt-5 mb-4 mb-lg-5 align-items-center">
+            <div class="mt-5 col-lg-8">
+                <h2 class="text-dark mt-5 mb-4" style="font-family: 'Jua', sans-serif;">등산 추천 코스</h2>
+                <p class="text-dark-50" style="font-family: 'Jua', sans-serif;">
+                    ???
+                </p>
+            </div>
+        </div>
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <img class="img-fluid" src="{% static 'assets/img/demo-image-02.jpg' %}" alt="등산코스플래시" />
+        </div>
+    </div>
+</section>
+
+<!-- Contact-->
+<section class="contact-section" style="background-color:#006400;">
+    <div class="container px-4 px-lg-5">
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
