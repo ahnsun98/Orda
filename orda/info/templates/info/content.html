@@ -13,13 +13,19 @@
                 <p class="text-dark-50" style="font-family: 'Jua', sans-serif; font-size: 1.25rem">
                     <b>위치</b> : {{data.loc}} <br>
                     <b>높이</b> : {{data.height}}m <br>
+                    {% if data.overview %}
                     {{data.overview}} <br>
+                    {% endif %}
+                    {% if data.detail %}
                     <br>
                     🔍 <b>상세 설명</b> : <br>
                     {{data.detail}} <br>
+                    {% endif %}
+                    {% if data.tourism %}
                     <br>
-                    📌 <b>관광정보</b> : <br>
+                    📌 <b>관광 정보</b> : <br>
                     {{data.tourism}} <br>
+                    {% endif %}
                 </p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import IntegerField, TextField
+from django.db.models.fields import IntegerField, TextField, FloatField
 
 class Mountain(models.Model):
     id = IntegerField(primary_key=True)
@@ -11,6 +11,8 @@ class Mountain(models.Model):
     detail = TextField(null=True)
     tourism = TextField(null=True)
     tourismimglink = TextField(null=True)
+    lat = FloatField()
+    lng = FloatField()
     
     class Meta:
         db_table = 'mountain'
