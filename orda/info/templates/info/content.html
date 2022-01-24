@@ -49,6 +49,7 @@
             <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img3" /></div>
             <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/demo-image-01.jpg' %}" alt="인스타img4" /></div>      
         </div>
+
         <!-- 맛집 -->
         <div class="row gx-0 mt-5 mb-4 mb-lg-5 align-items-center">
             <div class="mt-5 col-lg-8">
@@ -56,30 +57,31 @@
             </div>
         </div>
         <!-- 카카오API -->
-        <div class="map_wrap">
-            <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-        </div>
-        <div id="menu_wrap" class="bg_white">
-            <div class="option">
-                <div id="temp"></div>
+        <div class="row col-lg-10 gx-0 mb-5 mb-lg-0">
+            <div class="map_wrap">
+                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
             </div>
-            <hr>
-            <ul id="placesList"></ul>
-            <div id="pagination"></div>
+            <div id="menu_wrap" class="bg_white">
+                <div class="option">
+                    <div id="temp"></div>
+                </div>
+                <hr>
+                <ul id="placesList"></ul>
+                <div id="pagination"></div>
+            </div>
         </div>
 
+        {% if link.link %}
         <!-- 등산경로 -->
         <div class="row gx-0 mt-5 mb-4 mb-lg-5 align-items-center">
             <div class="mt-5 col-lg-8">
-                <h2 class="text-dark mt-5 mb-4" style="font-family: 'Jua', sans-serif;">등산 추천 코스</h2>
-                <p class="text-dark-50" style="font-family: 'Jua', sans-serif;">
-                    ???
-                </p>
+                <h2 class="text-dark mt-5 mb-4" style="font-family: 'Jua', sans-serif;">등산 코스</h2>
             </div>
         </div>
-        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <img class="img-fluid" src="" alt="등산코스플래시" />
+        <div class="row col-lg-8 gx-0 mb-5 mb-lg-0 justify-content-center">
+            <img class="img-fluid" src={{link.link|cut:'"'}} alt="등산코스플래시" />
         </div>
+        {% endif %}
     </div>
 </section>
 

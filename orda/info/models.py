@@ -20,3 +20,15 @@ class Mountain(models.Model):
         
     def __str__(self):
         return self.name
+
+class MountainRoute(models.Model):
+    index = IntegerField(primary_key=True)
+    name = TextField()
+    link = TextField(null=True)
+    
+    class Meta:
+        db_table = 'mountain_route'
+        managed = False
+        
+    def __str__(self):
+        return self.name
