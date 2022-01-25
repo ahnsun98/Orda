@@ -1,0 +1,80 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<head>
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+<form method="POST" action=".">
+  {% csrf_token %}
+
+  <div class="row mt-5">
+    
+    
+  </div>
+ 
+
+  <div class="row mt-5">
+     
+  </div> 
+  <h6>회원가입</h6> 
+<div class="form-group">
+  <label for="username">Username</label>
+  <input
+    type="text"
+    class="form-control"
+    id="username"
+    placeholder="username"
+    name="username"
+  />
+</div>
+<div class="form-group">
+  <label for="email">Email address</label>
+  <input
+    type="email"
+    class="form-control"
+    id="email"
+    placeholder="email"
+    name="email"
+  />
+</div>
+<div class="form-group">
+  <label for="password">Password</label>
+  <input
+    type="password"
+    class="form-control"
+    id="password"
+    placeholder="password"
+    name="password"
+  />
+</div>
+<div class="form-group">
+  <label for="re_password">Re-Password</label>
+  <input
+    type="password"
+    class="form-control"
+    id="re_password"
+    placeholder="re_password"
+    name="re_password"
+  />
+</div>
+<button type="submit" class="btn btn-primary">Submit</button><div class="col-12">
+  {{error}}
+</div>
+</form>
+
+
+
+<!-- Contact-->
+<section class="contact-section" style="background-color:#006400;">
+  <div class="container px-4 px-lg-5">
+      <div class="social d-flex justify-content-center">
+          <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+      </div>
+  </div>
+</section>
+{% endblock %}
