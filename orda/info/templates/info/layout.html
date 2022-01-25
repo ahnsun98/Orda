@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %}   
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,7 +33,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="">Review</a></li>
+                        {% if request.session.user %}
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/account/logout/">Logout</a></li>
+                        {%else%}
                         <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/account/login/">Login</a></li>
+                        
+                        {% endif %}
                     </ul>
                 </div>
             </div>
