@@ -93,14 +93,14 @@
     var mountain_name = "{{data.name}}";
     var mountain_lat = "{{data.lat}}";
     var mountain_lng = "{{data.lng}}";
-    var value = mountain_name + "맛집";
+    var value = "맛집";
 
     // 마커를 담을 배열입니다
     var markers = [];
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
-            center: new kakao.maps.LatLng(mountain_lat, mountain_lng), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(parseFloat(mountain_lat), parseFloat(mountain_lng)), // 지도의 중심좌표
             level: 3 // 지도의 확대 레벨
         };  
 
@@ -127,7 +127,10 @@
         }
 
         // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-        ps.keywordSearch( keyword, placesSearchCB); 
+        ps.keywordSearch( keyword, placesSearchCB, {
+            radius : 5000,
+            location: new kakao.maps.LatLng(parseFloat(mountain_lat), parseFloat(mountain_lng))
+        }); 
     }
 
     // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
