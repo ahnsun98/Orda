@@ -1,4 +1,4 @@
-{% extends 'main/layout.html' %}
+{% extends 'info/layout.html' %}
 
 {% load static %}
 
@@ -13,16 +13,12 @@
   {% csrf_token %}
 
   <div class="row mt-5">
-    
-    
   </div>
- 
-
   <div class="row mt-5">
-     
   </div> 
-  <h6>회원가입</h6> 
+  <h5>회원가입</h5> 
 <div class="form-group">
+
   <label for="username">Username</label>
   <input
     type="text"
@@ -30,7 +26,10 @@
     id="username"
     placeholder="username"
     name="username"
-  />
+    check_result="fail" required 
+  /><button type="button" class="id_overlap_button" onclick="id_overlap_check()">중복검사</button>
+  <img id="id_check_sucess" style="display: none;">
+  
 </div>
 <div class="form-group">
   <label for="email">Email address</label>
