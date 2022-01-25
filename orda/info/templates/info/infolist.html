@@ -1,0 +1,107 @@
+{% extends 'info/layout.html' %}
+
+{% load static %}
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+{% block content %}
+
+<!-- Main Content-->
+<section class="about-section" id="about">
+    <ul class="nav nav-tabs my-5 justify-content-center" style="font-family: 'Jua', sans-serif;">
+        {% if filters == 1 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% elif filters == 2 %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% endif %}
+        
+    </ul>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                {% for m in mountains_list %}
+                    {% if m.height %}
+                        <div class="post-preview">
+                            <div class="mx-3" style="float:left; width:200px;">
+                                <img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="img" />
+                            </div>
+                            <a href="{% url 'info:main' %}?name={{m.name}}&loc={{m.loc}}">
+                                <h2 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">{{m.name}}</h2>
+                            </a>
+                            <p style="font-family: 'Jua', sans-serif; font-size: 1.25rem;
+                                    overflow: hidden; text-overflow: ellipsis;
+                                    display: -webkit-box; -webkit-line-clamp: 5;
+                                    -webkit-box-orient: vertical; word-wrap:break-word; 
+                                    line-height: 1.2em; height: 6em;">
+                                <b>위치</b> : {{m.loc}} <br>
+                                <b>높이</b> : {{m.height}}m <br>
+                                {% if m.overview %}
+                                    {{m.overview}} <br>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                    {% endif %}
+                {% endfor %}
+                <!-- Pager-->
+
+                <div style='text-align:center;'>
+                    <ul class='pagination justify-content-center my-5'>
+                        {% if now_page != 1 %}
+                            <li class="page-item">
+                                <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}'><<</a>
+                            </li>
+                        {% endif %}
+                        {% for i in page_range %}
+                            {% if i == now_page %}
+                                <li class="page-item" >
+                                    <a class="page-link" style="background-color:rgba(100, 161, 157, 0.7); color:#fff" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
+                                </li>
+                            {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if now_page != end_page %}
+                            <li class="page-item">
+                                <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}'>>></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
