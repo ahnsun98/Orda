@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="row col-lg-8 gx-0 mb-5 mb-lg-0 justify-content-center">
-            <img class="img-fluid" src={{link.link|cut:'"'}} alt="등산코스플래시" />
+            <img class="img-fluid" src={{link.link|cut:'"'}} alt="등산 코스 이미지가 존재하지 않습니다.." />
         </div>
         {% endif %}
     </div>
@@ -140,12 +140,12 @@
 
         } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-            alert('검색 결과가 존재하지 않습니다.');
+            console.log(0);
             return;
 
         } else if (status === kakao.maps.services.Status.ERROR) {
 
-            alert('검색 결과 중 오류가 발생했습니다.');
+            console.log(-1);
             return;
 
         }

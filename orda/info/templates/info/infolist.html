@@ -8,6 +8,40 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <!-- Main Content-->
 <section class="about-section" id="about">
+    <ul class="nav nav-tabs my-5 justify-content-center" style="font-family: 'Jua', sans-serif;">
+        {% if filters == 1 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% elif filters == 2 %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=1">높이 높은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'info:list' %}?filter=2">높이 낮은순</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'info:list' %}?filter=3">가나다순</a>
+            </li>
+        {% endif %}
+        
+    </ul>
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -18,7 +52,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                             <div class="mx-3" style="float:left; width:200px;">
                                 <img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="img" />
                             </div>
-                            <a href="{% url 'info:main' %}?name={{m.name}}">
+                            <a href="{% url 'info:main' %}?name={{m.name}}&loc={{m.loc}}">
                                 <h2 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">{{m.name}}</h2>
                             </a>
                             <p style="font-family: 'Jua', sans-serif; font-size: 1.25rem;
