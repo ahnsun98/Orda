@@ -6,8 +6,8 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 {% block content %}
 
-<!-- Main Content-->
 <section class="about-section" id="about">
+    <!-- Filter -->
     <ul class="nav nav-tabs my-5 justify-content-center" style="font-family: 'Jua', sans-serif;">
         {% if filters == 1 %}
             <li class="nav-item">
@@ -42,6 +42,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         {% endif %}
         
     </ul>
+    <!-- Content-->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -71,8 +72,8 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                         <hr class="my-4" />
                     {% endif %}
                 {% endfor %}
-                <!-- Pager-->
 
+                <!-- Pager-->
                 <div style='text-align:center;'>
                     <ul class='pagination justify-content-center my-5'>
                         {% if now_page != 1 %}
@@ -97,7 +98,6 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                             </li>
                         {% endif %}
                     </ul>
-                    
                 </div>
             </div>
         </div>
