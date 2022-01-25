@@ -21,7 +21,7 @@ def main(request):
     return render(request, 'info/infopage.html', context)
 
 def list(request):
-    filter1 = int(request.GET.get('filter',3))
+    filter1 = int(request.GET.get('filter',1))
     print(filter1)
     if(filter1 == 1): #높이 높은순
         filters = '-height'
