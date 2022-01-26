@@ -10,38 +10,36 @@
     </div>
 </div>
 
-<div class="row mt-5">
-    <h5>로그인</h5>
-    <div class="col-12">
-        <form method="POST" action=".">
-            {% csrf_token %}
-            {% for field in form %}                                                           
-            <div class="form-group">                                                           
-                <label for="{{field.id_for_label }}">{{field.label}}</label>                  
-                <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label }}"
-                             placeholder="{{field.label}}" name="{{field.name}}"/>
-            </div>
-            {% if field.errors %}                                                           
-            <span style="color: red">{{field.errors}}</span>
-            {% endif %}
-            {% endfor %}
-            <button type="submit" class="btn btn-primary">Log in</button>
-            <button type="button" onclick="location.href='../register/' " class="btn btn-primary">signup</button>
-            <div class="row mt-5">
-            </div>
-            <div class="row mt-5">
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<!-- Contact-->
-<section class="contact-section" style="background-color:#006400;">
+<section class="about-section text-center" id="about">
     <div class="container px-4 px-lg-5">
-        <div class="social d-flex justify-content-center">
-            <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+        <div class="row gx-3 gx-lg-4 justify-content-center" style="font-family: 'Jua', sans-serif;">
+            <div class="col-lg-8">
+                <h2>LOGIN</h2>
+                <hr>
+            </div>
         </div>
-    </div>
-  </section>
+        <div class="row gx-3 gx-lg-4 justify-content-center" style="font-family: 'Jua', sans-serif; font-size: 1.25rem;">
+            <div style="width:500px">
+                <form class="my-3" method="POST" action=".">
+                    {% csrf_token %}
+                    {% for field in form %}                                                           
+                    <div class="form-group mb-2">                                                           
+                        <label style="color: #006400;" for="{{field.id_for_label }}">{{field.label}}</label>                  
+                        <input type="{{field.field.widget.input_type}}" class="form-control my-2" id="{{field.id_for_label}}"
+                                    placeholder="{{field.label}}" name="{{field.name}}"/>
+                    </div>
+                    {% if field.errors %}                                                           
+                    <span style="color:rgba(255,0,0,0.5)">{{field.errors}}</span>
+                    {% endif %}
+                    {% endfor %}
+                    <br>
+                    <div class="my-5">
+                        <button type="submit" class="btn btn-primary mx-4">Login</button>
+                        <button type="button" onclick="location.href='../register/' " class="btn btn-primary mx-4">signup</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>
+
 {% endblock %}
