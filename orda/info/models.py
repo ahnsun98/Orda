@@ -5,7 +5,7 @@ class Mountain(models.Model):
     id = IntegerField(primary_key=True)
     name = TextField(null=True)
     loc = TextField(null=True)
-    height = TextField(null=True)
+    height = IntegerField(null=True)
     overview = TextField(null=True)
     routeimglink = TextField(null=True)
     detail = TextField(null=True)
