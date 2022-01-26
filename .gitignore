@@ -4,6 +4,9 @@ protectKey/*
 # cache 추가 x
 orda/config/__pycache__/*
 
+orda/account/__pycache__/*
+orda/account/migrations/__pycache__/*
+
 orda/info/__pycache__/*
 orda/info/migrations/__pycache__/*
 
