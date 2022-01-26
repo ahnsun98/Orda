@@ -1,0 +1,47 @@
+{% extends 'info/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        {{error}}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <h5>로그인</h5>
+    <div class="col-12">
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {% for field in form %}                                                           
+            <div class="form-group">                                                           
+                <label for="{{field.id_for_label }}">{{field.label}}</label>                  
+                <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label }}"
+                             placeholder="{{field.label}}" name="{{field.name}}"/>
+            </div>
+            {% if field.errors %}                                                           
+            <span style="color: red">{{field.errors}}</span>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Log in</button>
+            <button type="button" onclick="location.href='../register/' " class="btn btn-primary">signup</button>
+            <div class="row mt-5">
+            </div>
+            <div class="row mt-5">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- Contact-->
+<section class="contact-section" style="background-color:#006400;">
+    <div class="container px-4 px-lg-5">
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+  </section>
+{% endblock %}
