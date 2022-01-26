@@ -12,10 +12,669 @@
             <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"> Search </button>
         </form>
+        
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
             <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/map.jpg' %}"/></div>
-            
+            <div id ='map'>
+                <button class="btn1" type="button" onclick="location.href='../region/main?name=서울'">서울</button>
+                <button class="btn2" type="button" onclick="location.href='../region/main?name=경기'">경기</button>
+                <button class="btn3" type="button" onclick="location.href='../region/main?name=인천'">인천</button>
+                <button class="btn4" type="button" onclick="location.href='../region/main?name=충북'">충북</button>
+                <button class="btn5" type="button" onclick="location.href='../region/main?name=충남'">충남</button>
+                <button class="btn6" type="button" onclick="location.href='../region/main?name=대전'">대전</button>
+                <button class="btn7" type="button" onclick="location.href='../region/main?name=전북'">전북</button>
+                <button class="btn8" type="button" onclick="location.href='../region/main?name=전남'">전남</button>
+                <button class="btn9" type="button" onclick="location.href='../region/main?name=광주'">광주</button>
+                <button class="btn10" type="button" onclick="location.href='../region/main?name=강원'">강원</button>
+                <button class="btn11" type="button" onclick="location.href='../region/main?name=경북'">경북</button>
+                <button class="btn12" type="button" onclick="location.href='../region/main?name=경남'">경남</button>
+                <button class="btn13" type="button" onclick="location.href='../region/main?name=울산'">울산</button>
+                <button class="btn14" type="button" onclick="location.href='../region/main?name=대구'">대구</button>
+                <button class="btn15" type="button" onclick="location.href='../region/main?name=부산'">부산</button>
+                <button class="btn16" type="button" onclick="location.href='../region/main?name=제주'">제주</button>
             </div>
-    </div>
+            <style>
+                #map{
+                
+                }
+                button.btn1 {
+                    background-color: green;
+                    border-color: white;
+                    border-radius: 8px;
+
+
+                    position: absolute;
+                    top: 330px;
+                    left : 39%; 
+                }
+                button.btn2 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 280px;
+                    left : 40%;
+                }
+                button.btn3 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 380px;
+                    left : 39%;
+                    font-size:40;
+                }
+                button.btn4 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 420px;
+                    left : 48%;
+                }
+                button.btn5 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 450px;
+                    left : 37%;
+                }
+                button.btn6 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 470px;
+                    left : 44%;
+                }
+                button.btn7 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 550px;
+                    left : 38%;
+                }
+                button.btn8 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 650px;
+                    left : 37%;
+                }
+                button.btn9 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 600px;
+                    left : 40%;
+                }
+                button.btn10 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 280px;
+                    left : 55%;
+                }
+                button.btn11 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 480px;
+                    left : 60%;
+                }
+                button.btn12 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 670px;
+                    left : 50%;
+                }
+                button.btn13 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 560px;
+                    left : 59%;
+                }
+                button.btn14 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 520px;
+                    left : 53%;
+                }
+                button.btn15 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 620px;
+                    left : 58%;
+                }
+                button.btn16 {
+                    border-radius: 8px;
+
+                    position: absolute;
+                    top: 780px;
+                    left : 45%;
+                }
+
+                @media ( max-width: 1395px ) {
+                    #map{
+                
+                    }
+                    button.btn1 {
+                        background-color: green;
+                        border-color: white;
+                        border-radius: 8px;
+    
+    
+                        position: absolute;
+                        top: 310px;
+                        left : 39%; 
+                    }
+                    button.btn2 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 270px;
+                        left :40%;
+                    }
+                    button.btn3 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 350px;
+                        left : 38%;
+                        font-size:40;
+                    }
+                    button.btn4 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 390px;
+                        left : 48%;
+                    }
+                    button.btn5 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 410px;
+                        left : 37%;
+                    }
+                    button.btn6 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 430px;
+                        left : 44%;
+                    }
+                    button.btn7 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 480px;
+                        left : 38%;
+                    }
+                    button.btn8 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 590px;
+                        left : 37%;
+                    }
+                    button.btn9 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 540px;
+                        left : 38%;
+                    }
+                    button.btn10 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 280px;
+                        left : 55%;
+                    }
+                    button.btn11 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 450px;
+                        left : 60%;
+                    }
+                    button.btn12 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 600px;
+                        left : 50%;
+                    }
+                    button.btn13 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 510px;
+                        left : 60%;
+                    }
+                    button.btn14 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 470px;
+                        left : 53%;
+                    }
+                    button.btn15 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 560px;
+                        left : 58%;
+                    }
+                    button.btn16 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 680px;
+                        left : 44%;
+                    }
+                }
+                @media ( max-width: 1200px ) {
+                    #map{
+                
+                    }
+                    button.btn1 {
+                        background-color: green;
+                        border-color: white;
+                        border-radius: 8px;
+    
+    
+                        position: absolute;
+                        top: 300px;
+                        left : 37%; 
+                    }
+                    button.btn2 {
+                      position: absolute;
+                      top: 260px;
+                      left : 38%;
+                    }
+                    button.btn3 {
+                        position: absolute;
+                        top: 340px;
+                        left : 37%;
+                        font-size:40;
+                    }
+                    button.btn4 {
+                        position: absolute;
+                        top: 360px;
+                        left : 47%;
+                    }
+                    button.btn5 {
+                        position: absolute;
+                        top: 390px;
+                        left : 35%;
+                    }
+                    button.btn6 {
+                        position: absolute;
+                        top: 390px;
+                        left : 42%;
+                    }
+                    button.btn7 {
+                        position: absolute;
+                        top: 450px;
+                        left : 36%;
+                    }
+                    button.btn8 {
+                        position: absolute;
+                        top: 530px;
+                        left : 34%;
+                    }
+                    button.btn9 {
+                        position: absolute;
+                        top: 490px;
+                        left : 36%;
+                    }
+                    button.btn10 {
+                        position: absolute;
+                        top: 260px;
+                        left : 55%;
+                    }
+                    button.btn11 {
+                        position: absolute;
+                        top: 400px;
+                        left : 60%;
+                    }
+                    button.btn12 {
+                        position: absolute;
+                        top: 530px;
+                        left : 50%;
+                    }
+                    button.btn13 {
+                        position: absolute;
+                        top: 470px;
+                        left : 59%;
+                    }
+                    button.btn14 {
+                        position: absolute;
+                        top: 420px;
+                        left : 53%;
+                    }
+                    button.btn15 {
+                        position: absolute;
+                        top: 510px;
+                        left : 58%;
+                    }
+                    button.btn16 {
+                        position: absolute;
+                        top: 600px;
+                        left : 44%;
+                    }
+                }
+                @media ( max-width: 990px ) {
+                    #map{
+                
+                    }
+                    button.btn1 {
+                        background-color: green;
+                        border-color: white;
+                        border-radius: 8px;
+    
+    
+                        position: absolute;
+                        top: 350px;
+                        left : 35%; 
+                    }
+                    button.btn2 {
+                        position: absolute;
+                        top: 300px;
+                        left : 35%;
+                    }
+                    button.btn3 {
+                        position: absolute;
+                        top: 390px;
+                        left : 32%;
+                        font-size:40;
+                    }
+                    button.btn4 {
+                        position: absolute;
+                    top: 450px;
+                        left : 45%;
+                    }
+                    button.btn5 {
+                        position: absolute;
+                        top: 490px;
+                        left : 29%;
+                    }
+                    button.btn6 {
+                        position: absolute;
+                        top: 500px;
+                        left : 40%;
+                    }
+                    button.btn7 {
+                        position: absolute;
+                        top: 590px;
+                        left : 29%;
+                    }
+                    button.btn8 {
+                        position: absolute;
+                        top: 680px;
+                        left : 27%;
+                    }
+                    button.btn9 {
+                        position: absolute;
+                        top: 640px;
+                        left : 33%;
+                    }
+                    button.btn10 {
+                        position: absolute;
+                        top: 290px;
+                        left : 59%;
+                    }
+                    button.btn11 {
+                        position: absolute;
+                        top: 510px;
+                        left : 66%;
+                    }
+                    button.btn12 {
+                        position: absolute;
+                        top: 720px;
+                        left : 55%;
+                    }
+                    button.btn13 {
+                        position: absolute;
+                        top: 610px;
+                        left : 66%;
+                    }
+                    button.btn14 {
+                        position: absolute;
+                        top: 550px;
+                        left : 57%;
+                    }
+                    button.btn15 {
+                        position: absolute;
+                        top: 670px;
+                        left : 63%;
+                    }
+                    button.btn16 {
+                        position: absolute;
+                        top: 830px;
+                        left : 40%;
+                    }
+                }
+                @media ( max-width: 770px ) {
+                    #map{
+                
+                    }
+                    button.btn1 {
+                        background-color: green;
+                        border-color: white;
+                        border-radius: 8px;
+    
+    
+                        position: absolute;
+                        top: 310px;
+                        left : 33%; 
+                    }
+                    button.btn2 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 270px;
+                        left :35%;
+                    }
+                    button.btn3 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 350px;
+                        left : 32%;
+                        font-size:40;
+                    }
+                    button.btn4 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 390px;
+                        left : 45%;
+                    }
+                    button.btn5 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 410px;
+                        left : 30%;
+                    }
+                    button.btn6 {
+                        border-radius: 8px;
+                        
+                        position: absolute;
+                        top: 420px;
+                        left : 39%;
+                    }
+                    button.btn7 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 480px;
+                        left : 30%;
+                    }
+                    button.btn8 {
+                        border-radius: 8px;
+                        
+                        position: absolute;
+                        top: 590px;
+                        left : 29%;
+                    }
+                    button.btn9 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 520px;
+                        left : 33%;
+                    }
+                    button.btn10 {
+                        border-radius: 8px;
+                        
+                        position: absolute;
+                        top: 290px;
+                        left : 59%;
+                    }
+                    button.btn11 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 430px;
+                        left : 65%;
+                    }
+                    button.btn12 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 580px;
+                        left : 54%;
+                    }
+                    button.btn13 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 500px;
+                        left : 65%;
+                    }
+                    button.btn14 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 460px;
+                        left : 56%;
+                    }
+                    button.btn15 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 540px;
+                        left : 63%;
+                    }
+                    button.btn16 {
+                        border-radius: 8px;
+
+                        position: absolute;
+                        top: 660px;
+                        left : 41%;
+                    }
+                }
+                @media ( max-width: 570px ) {
+                    #map{
+                
+                    }
+                    button.btn1 {
+                        background-color: green;
+                        border-color: white;
+                        border-radius: 8px;
+    
+    
+                        position: absolute;
+                        top: 300px;
+                        left : 29%; 
+                    }
+                    button.btn2 {
+                        position: absolute;
+                        top: 270px;
+                        left : 28%;
+                    }
+                    button.btn3 {
+                        position: absolute;
+                        top: 330px;
+                        left : 22%;
+                        font-size:40;
+                    }
+                    button.btn4 {
+                        position: absolute;
+                        top: 360px;
+                        left : 43%;
+                    }
+                    button.btn5 {
+                        position: absolute;
+                        top: 390px;
+                        left : 19%;
+                    }
+                    button.btn6 {
+                        position: absolute;
+                        top: 390px;
+                        left : 34%;
+                    }
+                    button.btn7 {
+                        position: absolute;
+                        top: 440px;
+                        left : 21%;
+                    }
+                    button.btn8 {
+                        position: absolute;
+                        top: 520px;
+                        left : 19%;
+                    }
+                    button.btn9 {
+                        position: absolute;
+                        top: 480px;
+                        left : 27%;
+                    }
+                    button.btn10 {
+                        position: absolute;
+                        top: 280px;
+                        left : 62%;
+                    }
+                    button.btn11 {
+                        position: absolute;
+                        top: 400px;
+                        left : 70%;
+                    }
+                    button.btn12 {
+                        position: absolute;
+                        top: 540px;
+                        left : 54%;
+                    }
+                    button.btn13 {
+                        position: absolute;
+                        top: 460px;
+                        left : 70%;
+                    }
+                    button.btn14 {
+                        position: absolute;
+                        top: 430px;
+                        left : 57%;
+                    }
+                    button.btn15 {
+                        position: absolute;
+                        top: 500px;
+                        left : 68%;
+                    }
+                    button.btn16 {
+                        position: absolute;
+                        top: 600px;
+                        left : 36%;
+                    }
+                }
+                </style>
+
+
+
+        </div>
+        
+    </div>  
 </section>
 {% endblock %}
