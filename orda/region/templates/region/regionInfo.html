@@ -1,70 +1,223 @@
+
+{% extends 'info/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>마커에 마우스 이벤트 등록하기</title>
+    <title>권역별 산 정보</title>
+    <style>
+      .test{    background-color: white;
+
+        padding: 50px;
+
+        border: 30px black;
+
+        margin: 40px;
+        border-radius: 5px;}
+    .btn{background-color: green;
+
+        padding: 20px;
+
+        border: 10px black;
+
+        margin: 10px;
+        border-radius: 5px;}
+    .dt{background-color:  green;
+
+            padding: 20px;
+    
+            border: 10px black;
+    
+            margin: 10px;
+            border-radius: 5px;}
+    #map{
+       display:flex;
+       margin-left:350px;
+       border-radius:10px;
+    }
+    
+    </style>
     
 </head>
 <body>
-<div id="map" style="width:1000px;height:700px;"></div>
+<div id="map" style="width:800px;height:700px;"></div>
 <p><em>마커에 마우스 커서를 올려주세요!</em></p> 
 
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9f696a13b3d1618053bdaf960f49c06b"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.55633490818211, 126.97223307171723), // 지도의 중심좌표
-        level: 10 // 지도의 확대 레벨
-    };
 
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+<script>
+
     
+var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+
+var levels=[
+{  loc:'서울',
+    lat:37.56105185954346, 
+    lng:126.98781032352132
+},
+{  loc:'경기도',
+    lat:37.61440214077209,
+    lng:127.17266966342966
+},
+{  loc:'인천',
+    lat:37.45465646807704,
+    lng: 126.69906033876427
+},
+{  loc:'부산',
+    lat:35.17840153368449, 
+    lng: 129.06080449249205
+},
+{  loc:'강원도',
+    lat:37.77441503935877, 
+    lng:128.39002057950944
+},
+{  loc:'충청북도',
+    lat:36.83419312196388, 
+    lng:127.79921340638117 
+},
+{  loc:'충청남도',
+    lat:36.62425821426245,
+    lng:126.82664337978017
+},
+{  loc:'전라남도',
+    lat:34.89399763209621, 
+    lng:126.98631526423004
+},
+{  loc:'전라북도',
+    lat:35.74634906149909, 
+    lng: 127.09466851362298 
+},
+{  loc:'경상북도',
+    lat:36.34231170398856,
+    lng:128.92223224018264
+},
+
+{  loc:'경상남도',
+    lat:35.35965596605631, 
+    lng:128.19314538048909
+},
+
+{  loc:'제주도',
+    lat:33.37357295808364, 
+    lng: 126.56196957255229
+},
+{  loc:'대전',
+    lat:36.34190677846679, 
+    lng:127.40438856704556
+},
+{  loc:'광주',
+    lat:35.15490119077155, 
+    lng:126.83156291737858
+},
+{  loc:'울산',
+    lat:35.557881338834534, 
+    lng:129.24748275618617
+},
+
+];
+
+
+
+
+mapOption = { 
+    center: new kakao.maps.LatLng(levels[0].lat,levels[0].lng), // 지도의 중심좌표
+    level: 10 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption);// 지도를 생성합니다
+
+  var imageSrc = "/static/assets/img/marker.png", // 마커이미지의 주소입니다    
+    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+
+let d=[];
 
    {% for i in mt_list%}
-  
-  
     // 마커를 표시할 위치입니다 
     var position =  new kakao.maps.LatLng({{i.lat}},{{i.lng}});
 
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+    markerPosition = position; // 마커가 표시될 위치입니다
+
+
     // 마커를 생성합니다
     var marker = new kakao.maps.Marker({
-    position: position
+    position: position,
+    image: markerImage,
     });
+
 
     // 마커를 지도에 표시합니다.
-    marker.setMap(map);
+    marker.setMap(map)
     
-    // 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    var iwContent = '<div style="padding:5px;">{{i.name}},{{i.height}},{{i.overview}}</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 
-    // 인포윈도우를 생성합니다
-    var infowindow = new kakao.maps.InfoWindow({
-        content : iwContent
-    });
    
-    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-    kakao.maps.event.addListener(marker, 'click', function(map, marker) {
-        // 클릭
-        console.log("dd");
-  });
-
-  
-    {% endfor %}
- 
-    // 마커에 마우스오버 이벤트를 등록합니다
-    function makeOverListener(map, marker, infowindow) {
-        return function() {
-            infowindow.open(map, marker);
-        };
-    }
+    var content=document.createElement('div');
+    content.classList.add('test');  
+   var info=document.createElement('span');
+   info.appendChild(document.createTextNode("{{i.name}}"));
+   info.appendChild(document.createTextNode("{{i.height}}"));
     
-    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-    function makeOutListener(infowindow) {
+    content.appendChild(info);
+
+    var closeBtn=document.createElement('button');
+    closeBtn.appendChild(document.createTextNode('닫기'));
+    var detailBtn=document.createElement('button');
+    detailBtn.appendChild(document.createTextNode('상세'));
+    closeBtn.classList.add('btn');  
+    detailBtn.classList.add('dt'); 
+    content.appendChild(closeBtn);
+    content.appendChild(detailBtn);
+
+
+    var overlay = new kakao.maps.CustomOverlay({
+            position: position,
+            content: content,  
+        });
+        //closeBtn.onclick = function(){
+         //   console.log("닫기 클릭");
+         //   overlay.setMap(null)};
+
+        closeBtn.addEventListener('click', function ()
+        { console.log("닫기 클릭"); 
+            overlay.setMap(null)}
+        );
+        detailBtn.addEventListener('click', function ()
+        { console.log("상세 클릭"); 
+        //overlay.setMap(null)}
+        });
+    
+        // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+        kakao.maps.event.addListener(marker, 'click',  makeOverListener(map, marker, overlay));
+        //kakao.maps.event.addListener(closeBtn, 'click', overlay.setMap(null));
+       
+    {% endfor %}
+        //클릭시
+    function makeOverListener(map, marker, overlay) {
+        console.log("클릭");
         return function() {
-            infowindow.close();
+            overlay.setMap(map,marker);
         };
     }
+
+   
+ 
+  
+
+
+
+
+
 </script>
 </body>
 </html>
+{% endblock %}
+
