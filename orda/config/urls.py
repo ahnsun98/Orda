@@ -25,5 +25,6 @@ urlpatterns = [
     path('main/', include('main.urls')),
     path('account/', include('account.urls')),
     path('', home),
+    path('region/', include('region.urls')),
 
 ]
