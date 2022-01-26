@@ -4,73 +4,69 @@
 
 {% block content %}
 
-
-<head>
-    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-<form method="POST" action=".">
-  {% csrf_token %}
-
-  <div class="row mt-5">
-  </div>
-  <div class="row mt-5">
-  </div> 
-  <h5>회원가입</h5> 
-<div class="form-group">
-  <label for="username">Username</label>
-  <input
-    type="text"
-    class="form-control"
-    id="username"
-    placeholder="username"
-    name="username"
-    check_result="fail" required 
-  />
-</div>
-<div class="form-group">
-  <label for="email">Email address</label>
-  <input
-    type="email"
-    class="form-control"
-    id="email"
-    placeholder="email"
-    name="email"
-  />
-</div>
-<div class="form-group">
-  <label for="password">Password</label>
-  <input
-    type="password"
-    class="form-control"
-    id="password"
-    placeholder="password"
-    name="password"
-  />
-</div>
-<div class="form-group">
-  <label for="re_password">Re-Password</label>
-  <input
-    type="password"
-    class="form-control"
-    id="re_password"
-    placeholder="re_password"
-    name="re_password"
-  />
-</div>
-<button type="submit" class="btn btn-primary">Submit</button><div class="col-12">
-  {{error}}
-</div>
-</form>
-
-
-
-<!-- Contact-->
-<section class="contact-section" style="background-color:#006400;">
+<section class="about-section text-center" id="about">
   <div class="container px-4 px-lg-5">
-      <div class="social d-flex justify-content-center">
-          <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+      <div class="row gx-3 gx-lg-4 justify-content-center" style="font-family: 'Jua', sans-serif;">
+          <div class="col-lg-8">
+              <h2>SIGNUP</h2>
+              <hr>
+          </div>
       </div>
-  </div>
+      <div class="row gx-3 gx-lg-4 justify-content-center" style="font-family: 'Jua', sans-serif; font-size: 1.25rem;">
+        <div style="width:500px">  
+          <form method="POST" action=".">
+            {% csrf_token %} 
+            <div class="form-group mb-2">
+              <label style="color: #006400;" for="username">사용자이름</label>
+              <input
+                type="text"
+                class="form-control my-2"
+                id="username"
+                placeholder="사용자이름"
+                name="username"
+                check_result="fail" required 
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label style="color: #006400;" for="email">이메일</label>
+              <input
+                type="email"
+                class="form-control my-2"
+                id="email"
+                placeholder="이메일"
+                name="email"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label style="color: #006400;" for="password">비밀번호</label>
+              <input
+                type="password"
+                class="form-control my-2"
+                id="password"
+                placeholder="비밀번호"
+                name="password"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label style="color: #006400;" for="re_password">비밀번호 재입력</label>
+              <input
+                type="password"
+                class="form-control my-2"
+                id="re_password"
+                placeholder="비밀번호 재입력"
+                name="re_password"
+              />
+            </div>
+            <div class="my-5"><button type="submit" class="btn btn-primary mx-4">Submit</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+            {{error}}
+        </div>
+      </div>
+    </div>
 </section>
+
 {% endblock %}

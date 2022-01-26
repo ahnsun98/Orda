@@ -21,9 +21,8 @@ def main(request):
     return render(request, 'info/infopage.html', context)
 
 def list(request):
-
-    filter1 = int(request.GET.get('filter',1))
-
+    filter1 = int(request.GET.get('filter',3))
+    
     if(filter1 == 1): #높이 높은순
         filters = '-height'
     elif(filter1 == 2): #높이 낮은순
@@ -32,10 +31,9 @@ def list(request):
         filters = 'name'
 
     now_page = int(request.GET.get('page', 1))
-    mountains = Mountain.objects.order_by(filters)
     
+    mountains = Mountain.objects.order_by(filters)
     p = Paginator(mountains, 10)
-
     mountains_list = p.page(now_page)
     start_page = 1
     end_page = p.num_pages
@@ -70,4 +68,3 @@ def imglist(request):
     # }
     
     return render(request, 'info/imglist.html', {'data':mountain})
-
