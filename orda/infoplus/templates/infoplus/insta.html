@@ -1,0 +1,27 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>예제</title>
+    <script src="js/jquery.min.js"></script>
+
+    <script>
+        $(function() {
+            // load 메소드
+            // $(요소 선택).load(url, data, 콜백함수);
+
+            // jq_1_news.html에 있는 #news_1, #news_2의 값을 그대로 가져옴 (태그까지 모두)
+            // 이를 #newsWrap_1, #newsWrap_2에 출력
+            $("#newsWrap_1").load("button.html #news_1");
+            $("#newsWrap_2").load("button.html #news_2");
+        });
+    </script>
+</head>
+
+<body>
+    <h1>LOAD 1</h1>
+    <div id="newsWrap_1"></div>
+    <h1>LOAD 2</h1>
+    <div id="newsWrap_2"></div>
+</body>
+</html>
