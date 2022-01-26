@@ -21,7 +21,6 @@ def main(request):
     return render(request, 'info/infopage.html', context)
 
 def list(request):
-
     filter1 = int(request.GET.get('filter',1))
 
     if(filter1 == 1): #높이 높은순
@@ -70,4 +69,3 @@ def imglist(request):
     # }
     
     return render(request, 'info/imglist.html', {'data':mountain})
-
