@@ -1,0 +1,21 @@
+{% extends 'info/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="projects-section" id="projects">
+    <div class="container px-4 px-lg-5">
+        <form class="d-flex" method="POST" action="{% url 'search' %}">
+            {% csrf_token %}        
+            <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"> Search </button>
+        </form>
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/map.jpg' %}"/></div>
+            
+            </div>
+    </div>
+</section>
+{% endblock %}
