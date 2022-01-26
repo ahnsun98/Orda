@@ -1,0 +1,33 @@
+{% extends 'info/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="projects-section" id="projects">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/map.jpg' %}" alt="인스타img1" /></div>
+            
+            </div>
+    </div>
+</section>
+
+<!-- Contact-->
+<section class="contact-section" style="background-color:#006400;">
+    <div class="container px-4 px-lg-5">
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://github.com/ahnsun98/Orda"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2a2474c6a786e0674d1bff4da6e05024&libraries=services"></script>
+<script type="text/javascript">
+    var mountain_name = "{{data.name}}";
+    var mountain_lat = "{{data.lat}}";
+    var mountain_lng = "{{data.lng}}";
+    var value = mountain_name + "맛집";
+
+</script>
+{% endblock %}
