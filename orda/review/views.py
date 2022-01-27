@@ -11,8 +11,9 @@ def main(request):
     
 
 def post(request):
+    author = BoardMember.objects.get(username= request.session['user']).username
     if request.method == "POST":
-        author = request.POST['author']
+        
         title = request.POST['title']
         contents = request.POST['contents']
         m_name = request.POST['m_name']
