@@ -4,44 +4,41 @@
 
 {% block content %}
 
-
 <section class="projects-section" id="projects">
     <div class="container px-4 px-lg-5">
-        <form class="d-flex" method="POST" action="{% url 'search' %}">
-            {% csrf_token %}        
-            <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"> Search </button>
-        </form>
-        
-        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+        <div class="row justify-content-center" style="font-family: 'Jua', sans-serif;">
+            <form class="d-flex col-lg-8" method="POST" action="{% url 'search' %}">
+                {% csrf_token %}        
+                <input class="form-control me-2" type="search" placeholder="산 검색어를 입력해주세요 (미입력 시 모든 산이 보여집니다)" name="searched" aria-label="Search">
+                <button class="btn btn-primary" type="submit">search</button>
+            </form>
+        </div>
+        <div class="row gx-0 my-5 mb-lg-0 justify-content-center" style="font-family: 'Jua', sans-serif;">
             <div class="col-lg-6"><img class="img-fluid" src="{% static 'assets/img/map.jpg' %}"/></div>
             <div id ='map'>
-                <button class="btn1" type="button" onclick="location.href='../region/main?name=서울'">서울</button>
-                <button class="btn2" type="button" onclick="location.href='../region/main?name=경기'">경기</button>
-                <button class="btn3" type="button" onclick="location.href='../region/main?name=인천'">인천</button>
-                <button class="btn4" type="button" onclick="location.href='../region/main?name=충북'">충북</button>
-                <button class="btn5" type="button" onclick="location.href='../region/main?name=충남'">충남</button>
-                <button class="btn6" type="button" onclick="location.href='../region/main?name=대전'">대전</button>
-                <button class="btn7" type="button" onclick="location.href='../region/main?name=전북'">전북</button>
-                <button class="btn8" type="button" onclick="location.href='../region/main?name=전남'">전남</button>
-                <button class="btn9" type="button" onclick="location.href='../region/main?name=광주'">광주</button>
-                <button class="btn10" type="button" onclick="location.href='../region/main?name=강원'">강원</button>
-                <button class="btn11" type="button" onclick="location.href='../region/main?name=경북'">경북</button>
-                <button class="btn12" type="button" onclick="location.href='../region/main?name=경남'">경남</button>
-                <button class="btn13" type="button" onclick="location.href='../region/main?name=울산'">울산</button>
-                <button class="btn14" type="button" onclick="location.href='../region/main?name=대구'">대구</button>
-                <button class="btn15" type="button" onclick="location.href='../region/main?name=부산'">부산</button>
-                <button class="btn16" type="button" onclick="location.href='../region/main?name=제주'">제주</button>
+                <button class="btn1 btn-primary my-5" type="button" onclick="location.href='../region/main?name=서울'">서울</button>
+                <button class="btn2 btn-primary my-5" type="button" onclick="location.href='../region/main?name=경기'">경기</button>
+                <button class="btn3 btn-primary my-5" type="button" onclick="location.href='../region/main?name=인천'">인천</button>
+                <button class="btn4 btn-primary my-5" type="button" onclick="location.href='../region/main?name=충북'">충북</button>
+                <button class="btn5 btn-primary my-5" type="button" onclick="location.href='../region/main?name=충남'">충남</button>
+                <button class="btn6 btn-primary my-5" type="button" onclick="location.href='../region/main?name=대전'">대전</button>
+                <button class="btn7 btn-primary my-5" type="button" onclick="location.href='../region/main?name=전북'">전북</button>
+                <button class="btn8 btn-primary my-5" type="button" onclick="location.href='../region/main?name=전남'">전남</button>
+                <button class="btn9 btn-primary my-5" type="button" onclick="location.href='../region/main?name=광주'">광주</button>
+                <button class="btn10 btn-primary my-5" type="button" onclick="location.href='../region/main?name=강원'">강원</button>
+                <button class="btn11 btn-primary my-5" type="button" onclick="location.href='../region/main?name=경북'">경북</button>
+                <button class="btn12 btn-primary my-5" type="button" onclick="location.href='../region/main?name=경남'">경남</button>
+                <button class="btn13 btn-primary my-5" type="button" onclick="location.href='../region/main?name=울산'">울산</button>
+                <button class="btn14 btn-primary my-5" type="button" onclick="location.href='../region/main?name=대구'">대구</button>
+                <button class="btn15 btn-primary my-5" type="button" onclick="location.href='../region/main?name=부산'">부산</button>
+                <button class="btn16 btn-primary my-5" type="button" onclick="location.href='../region/main?name=제주'">제주</button>
             </div>
             <style>
                 #map{
                 
                 }
                 button.btn1 {
-                    background-color: green;
-                    border-color: white;
                     border-radius: 8px;
-
 
                     position: absolute;
                     top: 330px;
@@ -159,8 +156,6 @@
                 
                     }
                     button.btn1 {
-                        background-color: green;
-                        border-color: white;
                         border-radius: 8px;
     
     
@@ -280,8 +275,6 @@
                 
                     }
                     button.btn1 {
-                        background-color: green;
-                        border-color: white;
                         border-radius: 8px;
     
     
@@ -371,8 +364,6 @@
                 
                     }
                     button.btn1 {
-                        background-color: green;
-                        border-color: white;
                         border-radius: 8px;
     
     
@@ -462,8 +453,6 @@
                 
                     }
                     button.btn1 {
-                        background-color: green;
-                        border-color: white;
                         border-radius: 8px;
     
     
@@ -583,8 +572,6 @@
                 
                     }
                     button.btn1 {
-                        background-color: green;
-                        border-color: white;
                         border-radius: 8px;
     
     
