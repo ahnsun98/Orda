@@ -96,26 +96,50 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                 <!-- Pager-->
                 <div style='text-align:center;'>
                     <ul class='pagination justify-content-center my-5'>
-                        {% if now_page != 1 %}
+                        {% if searched %}
+                            {% if now_page != 1 %}
+                                <li class="page-item">
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}&searched={{searched}}'><<</a>
+                                </li>
+                            {% endif %}
+                            {% for i in page_range %}
+                                {% if i == now_page %}
+                                    <li class="page-item" >
+                                        <a class="page-link" style="background-color:rgba(100, 161, 157, 0.7); color:#fff" href='{% url "info:list" %}?page={{i}}&searched={{searched}}'>{{i}}</a>
+                                    </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href='{% url "info:list" %}?page={{i}}&searched={{searched}}'>{{i}}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if now_page != end_page %}
+                                <li class="page-item">
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}&searched={{searched}}'>>></a>
+                                </li>
+                            {% endif %}
+                        {% else %}
+                            {% if now_page != 1 %}
                             <li class="page-item">
                                 <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}'><<</a>
                             </li>
-                        {% endif %}
-                        {% for i in page_range %}
-                            {% if i == now_page %}
-                                <li class="page-item" >
-                                    <a class="page-link" style="background-color:rgba(100, 161, 157, 0.7); color:#fff" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
-                                </li>
-                            {% else %}
-                            <li class="page-item">
-                                <a class="page-link" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
-                            </li>
                             {% endif %}
-                        {% endfor %}
-                        {% if now_page != end_page %}
-                            <li class="page-item">
-                                <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}'>>></a>
-                            </li>
+                            {% for i in page_range %}
+                                {% if i == now_page %}
+                                    <li class="page-item" >
+                                        <a class="page-link" style="background-color:rgba(100, 161, 157, 0.7); color:#fff" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
+                                    </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href='{% url "info:list" %}?page={{i}}'>{{i}}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if now_page != end_page %}
+                                <li class="page-item">
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}'>>></a>
+                                </li>
+                            {% endif %}
                         {% endif %}
                     </ul>
                 </div>
