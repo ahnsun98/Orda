@@ -26,6 +26,11 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="http://127.0.0.1:8000/main/" style="color: #006400;">오르다</a>
+                <div class="row">
+                    {% if request.session.user %}
+                        <p class="mt-3 mx-2" style="font-family: 'Jua', sans-serif;"><b>{{ request.session.user}}</b> 님 반갑습니다😊</p>
+                    {% endif %}
+                </div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -34,11 +39,9 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/review">Review</a></li>
                         {% if request.session.user %}
-                        {{ request.session.user}} 님 반갑습니다.
                         <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/account/logout/">Logout</a></li>
                         {%else%}
                         <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/account/login/">Login</a></li>
-                        
                         {% endif %}
                     </ul>
                 </div>

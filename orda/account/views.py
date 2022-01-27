@@ -24,19 +24,18 @@ def register(request):
           
         try:
             BoardMember.objects.get(username=username)
-            res_data['error'] = '중복된 아이디입니다.' 
+            res_data['error'] = '중복된 아이디입니다!' 
             
         except:
             
         
             if not (username and password and re_password and email):
-                res_data['error'] = '입력되지 않은 항목이 있습니다'
+                res_data['error'] = '입력되지 않은 항목이 있습니다!'
                 
             
 
             elif password != re_password:
-                res_data['error'] = '비밀번호가 다릅니다'
-                print(res_data)
+                res_data['error'] = '비밀번호가 다릅니다!'
             
         
 
@@ -47,6 +46,7 @@ def register(request):
                     password    = make_password(password)
                 )
                 member.save()
+                res_data['complete'] = '회원가입이 완료되었습니다!'
 
         return render(request, 'account/register.html', res_data)
     
