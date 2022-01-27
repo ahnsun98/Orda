@@ -47,9 +47,9 @@
             </div>
         </div>
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img1" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img2" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img3" /></div>
+            {% for i in '012'|make_list %}
+                <img class="mountain-img" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{data.name}}/{{data.name}}{{forloop.counter|add:1}}.jpg" alt="산 이미지가 없습니다 😭" />
+            {% endfor %}
         </div>
         <a class="mx-0 mt-4 nav-link" style="font-family: 'Jua', sans-serif; text-align:right; font-size: 1.25rem;" href="{% url 'info:imglist' %}?id={{data.id}}">사진 더보기</a>
 
