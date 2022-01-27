@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'region'
 urlpatterns = [
-    path('main/', views.showmap),
+    path('region/', views.showmap),
+
 ]
