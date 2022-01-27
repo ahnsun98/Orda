@@ -18,13 +18,9 @@ def post(request):
         m_name = request.POST['m_name']
         m_loc = request.POST['m_loc']
 
-<<<<<<< HEAD
         file = request.FILE.get('file')
 
         post = Post(author=author, title=title, contents=contents, m_name=m_name, m_loc=m_loc, file=file)
-=======
-        post = Post(author=author, title=title, contents=contents, m_name=m_name, m_loc=m_loc)
->>>>>>> notsalhoon2
 
         post.save()
         return HttpResponseRedirect('/review/')
@@ -50,10 +46,7 @@ def edit(request,id):
         post.contents = request.POST['contents']
         post.m_name = request.POST['m_name']
         post.m_loc = request.POST['m_loc']
-<<<<<<< HEAD
         post.file = request.FILE['file']
-=======
->>>>>>> notsalhoon2
 
         post.save()
         return HttpResponseRedirect('/review/')
