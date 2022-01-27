@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from sqlalchemy import null
 
 from .models import Post
 from account.models import BoardMember
@@ -42,13 +43,13 @@ def edit(request,id):
     post = Post.objects.get(pk=id)
 
     if request.method == "POST":
-        post.author = request.POST['author']
+        # post.author = request.POST['author']
         post.title = request.POST['title']
         post.contents = request.POST['contents']
         post.m_name = request.POST['m_name']
         post.m_loc = request.POST['m_loc']
-
-        post.file = request.FILES['file']
+        
+        post.file = request.FILES.get('file', None)
 
         post.save()
         return HttpResponseRedirect('/review/')
