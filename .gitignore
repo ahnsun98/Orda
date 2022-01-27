@@ -21,3 +21,6 @@ orda/region/migrations/__pycache__/*
 
 orda/review/__pycache__/*
 orda/review/migrations/__pycache__/*
+
+# DB 추가 x
+orda/db.sqlite3
