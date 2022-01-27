@@ -20,8 +20,10 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ post.title }} - {{ post.author }}</h5>
+            <h7 class="card-text">{{ post.m_name }} - {{ post.m_loc }}</h7>
             <p class="card-text"><small class="text-muted">{{ post.created_date | date:"Y-m-d h:i" }}</small></p>
             <p class="card-text">{{ post.contents }}</p>
+            <img src="{{post.file.url}}" width=200>
         </div>
     </div>
     <div class="row mt-3">
