@@ -27,15 +27,15 @@ file = json.loads(file)
 key = file['django_key']
 SECRET_KEY = key
 
-AWS_ACCESS_KEY_ID = file['s3_ak']
-AWS_SECRET_ACCESS_KEY = file['s3_sak']
-AWS_S3_REGION_NAME = 'ap-northeast-2'
-AWS_STORAGE_BUCKET_NAME = 'aivle-s51'
-AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = file['s3_ak']
+# AWS_SECRET_ACCESS_KEY = file['s3_sak']
+# AWS_S3_REGION_NAME = 'ap-northeast-2'
+# AWS_STORAGE_BUCKET_NAME = 'aivle-s51'
+# AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
