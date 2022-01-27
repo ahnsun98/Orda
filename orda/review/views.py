@@ -18,7 +18,7 @@ def post(request):
         m_name = request.POST['m_name']
         m_loc = request.POST['m_loc']
 
-        file = request.FILE.get('file')
+        file = request.FILES.get('file')
 
         post = Post(author=author, title=title, contents=contents, m_name=m_name, m_loc=m_loc, file=file)
 
@@ -46,7 +46,8 @@ def edit(request,id):
         post.contents = request.POST['contents']
         post.m_name = request.POST['m_name']
         post.m_loc = request.POST['m_loc']
-        post.file = request.FILE['file']
+
+        post.file = request.FILES['file']
 
         post.save()
         return HttpResponseRedirect('/review/')

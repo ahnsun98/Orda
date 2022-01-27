@@ -17,7 +17,7 @@
     </div>
 </header>
 <div class="container">
-    <form action="/review/edit/{{post.id}}" method="post">
+    <form action="/review/edit/{{post.id}}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group row">
             <label for="inputTitle" class="col-sm-2 col-form-label"><strong>제목</strong></label>
@@ -49,6 +49,7 @@
                 <textarea type="text" name="contents" class="form-control" id="inputContent">{{post.contents}}</textarea>
             </div>
         </div>
+        <input type="file" id="file" name="file">
         <div class="row">
             <div class="col-auto mr-auto"></div>
             <div class="col-auto">
