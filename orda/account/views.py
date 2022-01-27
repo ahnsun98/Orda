@@ -96,7 +96,8 @@ def login(request):
     if request.method =="POST":
         form = LoginForm(request.POST)
         if form.is_valid():
-            request.session['user'] = form.user_id
+            request.session['user'] = form.user_name
+        
             return redirect('/main')
     else:
         form = LoginForm() 

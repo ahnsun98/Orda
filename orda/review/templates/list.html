@@ -1,7 +1,22 @@
+{% extends 'info/layout.html' %}
+
 {% load static %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+        
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+        
+        </div>
+    </div>
     <meta charset="UTF-8">
     <title>게시판 - 목록</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -41,7 +56,7 @@
                 </a>
             </td>
             <td>
-                <span>{{ post.author }}</span>
+                <span>{{ post.author.username }}</span>
             </td>
             <td>
                 <span>{{ post.m_name }}</span>
@@ -65,5 +80,27 @@
     </div>
 </div>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
 </body>
 </html>
+
+{% endblock %}
