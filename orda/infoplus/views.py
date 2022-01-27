@@ -14,10 +14,3 @@ import time
 
 def food(request):
     return render(request, 'infoplus/food.html')    
-
-def insta(request):
-    return render(request, 'infoplus/insta.html')
-
-# map click
-def button(request):
-    return render(request, 'infoplus/button.html')
