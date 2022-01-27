@@ -7,18 +7,14 @@
 <section class="about-section text-center" id="about">
     <!-- Images -->
     <div class="container px-4 px-lg-5">
-        <div class="row gx-0 mb-lg-0 justify-content-center">
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img1" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img2" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img3" /></div>
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            {% for i in '012345'|make_list %}
+                <img style="width: 300px; height: 300px; object-fit: cover;" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{data.name}}{{data.loc}}/{{data.name}}{{data.loc}}{{forloop.counter|add:1}}.jpg" alt="산 이미지가 없습니다 😭" />
+            {% endfor %}
         </div>
-        <div class="row gx-0 mb-lg-0 justify-content-center">
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img1" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img2" /></div>
-            <div class="col-md-4 col-lg-4 col-xl-4"><img class="img-fluid" src="{% static 'assets/img/instagramimg.png' %}" alt="인스타img3" /></div>
-        </div>
-        <div class="row gx-0 mb-5"></div>
     </div>
+    <br>
+    <br>
 </section>
 
 {% endblock %}

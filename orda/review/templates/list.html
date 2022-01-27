@@ -1,7 +1,22 @@
+{% extends 'info/layout.html' %}
+
 {% load static %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+        
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+        
+        </div>
+    </div>
     <meta charset="UTF-8">
     <title>게시판 - 목록</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -23,6 +38,8 @@
             <th scope="col">#</th>
             <th scope="col">제목</th>
             <th scope="col">작성자</th>
+            <th scope="col">산 이름</th>
+            <th scope="col">위치</th>
             <th scope="col">작성일</th>
         </tr>
         </thead>
@@ -39,7 +56,13 @@
                 </a>
             </td>
             <td>
-                <span>{{ post.author }}</span>
+                <span>{{ post.author.username }}</span>
+            </td>
+            <td>
+                <span>{{ post.m_name }}</span>
+            </td>
+            <td>
+                <span>{{ post.m_loc }}</span>
             </td>
             <td>
                 <span>{{ post.created_date | date:"Y-m-d h:i" }}</span>
@@ -51,11 +74,35 @@
     </table>
     <div class="row">
         <div class="col-auto mr-auto"></div>
+        {% if request.session.user %}
         <div class="col-auto">
             <a class="btn btn-primary" href="/review/post/" role="button">글쓰기</a>
         </div>
+        {% endif %}
     </div>
 </div>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+    
+    </div>
+</div>
 </body>
 </html>
+
+{% endblock %}

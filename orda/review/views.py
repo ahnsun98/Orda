@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from django.core.exceptions import ValidationError
 
 from .models import Post
+from account.models import BoardMember
 
 def main(request):
     posts = {'posts': Post.objects.all()}
@@ -11,12 +11,17 @@ def main(request):
     
 
 def post(request):
+    author = BoardMember.objects.get(username= request.session['user'])
     if request.method == "POST":
-        author = request.POST['author']
+        
         title = request.POST['title']
         contents = request.POST['contents']
-        post = Post(author=author, title=title, contents=contents)
-        
+        m_name = request.POST['m_name']
+        m_loc = request.POST['m_loc']
+
+        file = request.FILES.get('file')
+
+        post = Post(author=author, title=title, contents=contents, m_name=m_name, m_loc=m_loc, file=file)
 
         post.save()
         return HttpResponseRedirect('/review/')
@@ -40,6 +45,10 @@ def edit(request,id):
         post.author = request.POST['author']
         post.title = request.POST['title']
         post.contents = request.POST['contents']
+        post.m_name = request.POST['m_name']
+        post.m_loc = request.POST['m_loc']
+
+        post.file = request.FILES['file']
 
         post.save()
         return HttpResponseRedirect('/review/')

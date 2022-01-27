@@ -27,6 +27,16 @@ file = json.loads(file)
 key = file['django_key']
 SECRET_KEY = key
 
+# AWS_ACCESS_KEY_ID = file['s3_ak']
+# AWS_SECRET_ACCESS_KEY = file['s3_sak']
+# AWS_S3_REGION_NAME = 'ap-northeast-2'
+# AWS_STORAGE_BUCKET_NAME = 'aivle-s51'
+# AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -159,6 +169,10 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

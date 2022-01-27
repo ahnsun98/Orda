@@ -22,6 +22,7 @@ def main(request):
 
 def list(request):
     filter1 = int(request.GET.get('filter',3))
+    searched = request.GET.get('searched',None)
     
     if(filter1 == 1): #높이 높은순
         filters = '-height'
@@ -30,41 +31,40 @@ def list(request):
     else: #가나다순
         filters = 'name'
 
+    if(searched):
+        mountains = Mountain.objects.filter(name__contains=searched)
+        mountains = mountains.order_by(filters)
+    else:
+         mountains = Mountain.objects.order_by(filters)
+
     now_page = int(request.GET.get('page', 1))
-    
-    mountains = Mountain.objects.order_by(filters)
     p = Paginator(mountains, 10)
     mountains_list = p.page(now_page)
     start_page = 1
     end_page = p.num_pages
-        
-    context = {
-        'mountains_list' : mountains_list,
-        'page_range' : range(start_page, end_page + 1),
-        'now_page' : now_page,
-        'end_page' : end_page,
-        'filters' : filter1,
-    }
+    
+    if(searched):
+        context = {
+            'mountains_list' : mountains_list,
+            'page_range' : range(start_page, end_page + 1),
+            'now_page' : now_page,
+            'end_page' : end_page,
+            'filters' : filter1,
+            'searched' : searched,
+        }
+    else:
+        context = {
+            'mountains_list' : mountains_list,
+            'page_range' : range(start_page, end_page + 1),
+            'now_page' : now_page,
+            'end_page' : end_page,
+            'filters' : filter1,
+        }
     
     return render(request, 'info/infolist.html', context)
 
 def imglist(request):
     m_id = int(request.GET.get('id'))
     mountain = Mountain.objects.get(id=m_id)
-    
-    # <Paging>
-    # now_page = int(request.GET.get('page', 1))
-    # p = Paginator(mountains, 10)
-    # mountains_list = p.page(now_page)
-    # start_page = 1
-    # end_page = p.num_pages
-    
-    # context = {
-    #     'data' : mountain,
-    #     'img' : mountain_img,
-    #     'page_range' : range(start_page, end_page + 1),
-    #     'now_page' : now_page,
-    #     'end_page' : end_page
-    # }
     
     return render(request, 'info/imglist.html', {'data':mountain})
