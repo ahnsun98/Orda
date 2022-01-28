@@ -66,7 +66,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                         {% if m.height %}
                             <div class="post-preview">
                                 <div class="mx-3" style="float:left; width:200px;">
-                                    <img style="width: 200px; height: 200px; object-fit: cover;" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{m.name}}{{m.loc}}/{{m.name}}{{m.loc}}1.jpg" alt="산 이미지가 없습니다 😭" />
+                                    <img style="width: 200px; height: 200px; object-fit: cover; border-radius: 30px;" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{m.name}}{{m.loc}}/{{m.name}}{{m.loc}}1.jpg" alt="산 이미지가 없습니다 😭" />
                                 </div>
                                 <a href="{% url 'info:main' %}?name={{m.name}}&loc={{m.loc}}">
                                     <h2 class="text-dark mb-4" style="font-family: 'Jua', sans-serif;">{{m.name}}</h2>
@@ -99,7 +99,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                         {% if searched %}
                             {% if now_page != 1 %}
                                 <li class="page-item">
-                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}&searched={{searched}}'><<</a>
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}&searched={{searched}}'><</a>
                                 </li>
                             {% endif %}
                             {% for i in page_range %}
@@ -115,13 +115,13 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                             {% endfor %}
                             {% if now_page != end_page %}
                                 <li class="page-item">
-                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}&searched={{searched}}'>>></a>
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}&searched={{searched}}'>></a>
                                 </li>
                             {% endif %}
                         {% else %}
                             {% if now_page != 1 %}
                             <li class="page-item">
-                                <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}'><<</a>
+                                <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:-1}}'><</a>
                             </li>
                             {% endif %}
                             {% for i in page_range %}
@@ -137,7 +137,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
                             {% endfor %}
                             {% if now_page != end_page %}
                                 <li class="page-item">
-                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}'>>></a>
+                                    <a class="page-link" style="background-color:#64a19d; color:#fff" href='{% url "info:list" %}?page={{now_page|add:1}}'>></a>
                                 </li>
                             {% endif %}
                         {% endif %}

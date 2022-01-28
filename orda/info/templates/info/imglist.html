@@ -7,9 +7,10 @@
 <section class="about-section text-center" id="about">
     <!-- Images -->
     <div class="container px-4 px-lg-5">
+        <span style="text-align: center;"><a class="btn btn-primary mb-5" style="font-family: 'Jua', sans-serif; font-size: 1.25rem; text-decoration:none;" href="/info/main/?name={{data.name}}&loc={{data.loc}}">Back</a></span>
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
             {% for i in '01234'|make_list %}
-                <img style="width: 300px; height: 300px; object-fit: cover;" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{data.name}}{{data.loc}}/{{data.name}}{{data.loc}}{{forloop.counter|add:1}}.jpg" alt="산 이미지가 없습니다 😭" />
+                <img style="width: 300px; height: 300px; object-fit: cover; border-radius: 30px;" src="https://aivle-s51.s3.ap-northeast-2.amazonaws.com/image/{{data.name}}{{data.loc}}/{{data.name}}{{data.loc}}{{forloop.counter|add:1}}.jpg" alt="산 이미지가 없습니다 😭" />
             {% endfor %}
         </div>
     </div>

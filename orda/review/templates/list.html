@@ -22,6 +22,15 @@
     <title>게시판 - 목록</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <style>
+        .navbar-brand {
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            margin-right: 1rem;
+            font-size: 2rem;
+            text-decoration: none;
+            white-space: nowrap;
+            font-family: 'Jua', sans-serif;
+          }
         .newbtn {
             display: inline-block;
             font-weight: 400;
@@ -69,7 +78,7 @@
 <header>
     <div class="navbar navbar-light shadow-sm mb-3" style="background-color:rgba(100, 161, 157, 1);">
         <div class="container d-flex justify-contents-between">
-            <a href="/review" class="navbar-brand d-flex align-items-center ml-3" style="color:#fff;">게시판</a>
+            <a href="/review" class="navbar-brand d-flex align-items-center ml-3" style="color:#fff; font-size:1.5rem;">게시판</a>
         </div>
     </div>
 </header>
