@@ -22,6 +22,15 @@
     <title>게시판 - {{ post.title }}</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <style>
+        .navbar-brand {
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            margin-right: 1rem;
+            font-size: 2rem;
+            text-decoration: none;
+            white-space: nowrap;
+            font-family: 'Jua', sans-serif;
+          }
         .newbtn {
             display: inline-block;
             font-weight: 400;
@@ -69,19 +78,22 @@
 <header>
     <div class="navbar navbar-light shadow-sm mb-5" style="background-color:rgba(100, 161, 157, 1);">
         <div class="container d-flex justify-contents-between">
-            <a href="/review" class="navbar-brand d-flex align-items-center ml-3" style="color:#fff;">게시판</a>
+            <a href="/review" class="navbar-brand d-flex align-items-center ml-3" style="color:#fff; font-size:1.5rem;">게시판</a>
         </div>
     </div>
 </header>
 <div class="container">
     <div class="card my-5" style="font-family: 'Jua', sans-serif;">
         <div class="card-body">
-            <h5 class="card-title">{{ post.title }} - {{ post.author.username }}</h5>
-            <h6 class="card-text">{{ post.m_name }} - {{ post.m_loc }}</h6>
-            <p class="card-text"><small class="text-muted">{{ post.created_date | date:"Y-m-d h:i" }}</small></p>
-            <p class="card-text">{{ post.contents }}</p>
+            <h1 class="card-title" align="center"> 제목 : {{ post.title }}</h1>
+            <br><br>
+            <h3 class="card-title" align="right"> 작성자 : {{ post.author.username }}</h3>
+            <h6 class="card-text" align="right"> 산 이름 : {{ post.m_name }}</h6>
+            <h6 class="card-text" align="right"> 위치 : {{ post.m_loc }}</h6>
+            <p class="card-text"  align="right"><small class="text-muted">{{ post.created_date | date:"Y-m-d h:i" }}</small></p>
+            <p class="card-text" align="left">{{ post.contents }}</p>
             {% if post.file %}
-            <img src="{{post.file.url}}" width=200>
+            <img src="{{post.file.url}}" width=500>
             {% endif %}
         </div>
     </div>
