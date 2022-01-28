@@ -101,22 +101,25 @@
         <div class="col-auto mr-auto"></div>
         
         {% if post.file %}
-        <div class="col-auto">
+        <span class="col-auto">
             <a class="newbtn mb-5" style="font-family: 'Jua', sans-serif; font-size: 1.25rem; text-decoration:none;" href="{{post.file.url}}" download role="button">저장</a>
-        </div>
+        </span>
         {% endif %}
         {% if request.session.user == post.author.username %}
-        <div class="col-auto">
+        <span class="col-auto mx-0">
             <a class="newbtn mb-5" style="font-family: 'Jua', sans-serif; font-size: 1.25rem; text-decoration:none;" href="/review/edit/{{post.id}}" role="button">수정</a>
-        </div>
-        <div class="col-auto">
+        </span>
+        <span class="col-auto mx-0">
             <form id="delete-form" action="/review/delete/{{post.id}}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="_method" value="delete"/>
                 <button id="delete-btn" type="submit" style="font-family: 'Jua', sans-serif; font-size: 1.25rem; background-color:rgba(255,0,0,0.5);" class="newbtn mb-5">삭제</button>
             </form>
-        </div>
+        </span>
         {% endif %}
+        <span class="col-auto mx-0">
+            <a class="newbtn mb-5" style="font-family: 'Jua', sans-serif; font-size: 1.25rem; text-decoration:none;" href="/review">Back</a>
+        </span>
     </div>
 </div>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
